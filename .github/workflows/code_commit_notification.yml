@@ -12,7 +12,7 @@ jobs:
         with:
           server_address: smtp.gmail.com  # Replace with your SMTP server address
           server_port: 587  # Replace with your SMTP server port
-          username: ${{ secrets.EMAIL_USERNAME }}
+          username: bhavinmpanchal91@gmail.com
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "Code Commit Notification"
           to: bhavinmpanchal19@gmail.com  # Replace with your email address
