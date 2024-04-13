@@ -16,7 +16,7 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "Code Commit Notification"
           to: bhavinmpanchal19@gmail.com  # Replace with your email address
-          from: "bhavinmpanchal19@gmail.com"  # Replace with the sender email address
+          from: "bhavinmpanchal91@gmail.com"  # Replace with the sender email address
           body: |
             A code commit has been made to the repository.
             Repository: ${{ github.repository }}
