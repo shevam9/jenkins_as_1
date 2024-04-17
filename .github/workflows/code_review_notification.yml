@@ -21,3 +21,5 @@ jobs:
             Repository: ${{ github.repository }}
             Pull Request: ${{ github.event.pull_request.html_url }}
             Author: ${{ github.event.pull_request.user.login }}
+            Pull Request Number: ${{ github.event.pull_request.number }}
+            Pull Request Title: ${{ github.event.pull_request.title }}
