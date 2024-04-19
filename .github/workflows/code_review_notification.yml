@@ -1,25 +1,28 @@
 name: Code Review Notification
+
 on:
   pull_request:
     types: [opened, reopened, closed, edited, review_requested]
+
 jobs:
   send_email:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+
       - name: Send Email Notification
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: bhavinmpanchal91@gmail.com
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Code Review Notification"
-          to: bhavinmpanchal19@gmail.com  
-          from: "bhavinmpanchal91@gmail.com"  
+          server_address: smtp.gmail.com  # Replace with your SMTP server address
+          server_port: 587  # Adjust port if needed (consult your provider)
+          username: bhavinmpanchal91@gmail.com  # Replace with your email address
+          password: ${{ secrets.EMAIL_PASSWORD }}  # Reference email password secret
+          subject: "Code Review Notification - ${{ github.event.action }}"  # Dynamic subject based on action
+          to: bhavinmpanchal19@gmail.com  # Replace with recipient email
           body: |
-            A pull request has been made to the repository.
+            A pull request has been **{{ github.event.action }}** in the repository.
+
+            **Action:** ${{ github.event.action }}  # Highlight the action (opened, closed, etc.)
             Repository: ${{ github.repository }}
-            Pull Request: ${{ github.event.pull_request.html_url }}
+            Pull Request URL: ${{ github.event.pull_request.html_url }}
             Author: ${{ github.event.pull_request.user.login }}
-            Pull Request Number: ${{ github.event.pull_request.number }}
-            Pull Request Title: ${{ github.event.pull_request.title }}
