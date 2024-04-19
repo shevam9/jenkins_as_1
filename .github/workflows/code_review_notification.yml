@@ -19,6 +19,7 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}  # Reference email password secret
           subject: "Code Review Notification - ${{ github.event.action }}"  # Dynamic subject based on action
           to: bhavinmpanchal19@gmail.com  # Replace with recipient email
+          from: bhavinmpanchal91@gmail.com
           body: |
             A pull request has been **{{ github.event.action }}** in the repository.
 
